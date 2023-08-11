@@ -1,4 +1,5 @@
 "use client"
+import axios from 'axios'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -16,7 +17,9 @@ function Register() {
     })
 
     const handleRegister = () => {
-
+        axios.post('/api/user/register', user)
+            .then((res) => { console.log(res) })
+            .catch((err) => console.log(err));
     }
 
     return (
